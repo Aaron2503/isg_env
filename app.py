@@ -4,9 +4,9 @@ from sqlalchemy import create_engine
 #from flask_table import Table, Col
 from datetime import datetime
 import sqlite3
-import matplotlib.pyplot as plt
-import squarify
-import collections
+#import matplotlib.pyplot as plt
+#import squarify
+#import collections
 import numpy as np
 import pandas as pd
 from pandas import DataFrame
