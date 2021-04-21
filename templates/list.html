@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste Auswahl Massnahmen</title>
+</head>
+
+   <body>
+      <a href = "/">Zurück</a>
+      <p>Sim-ID <input type="text" name="simid" id="simid"></p>
+      <p>Startwerte <input type="text" name="startwert" id="startwert"></p>
+
+
+      <div id="my_table"> {{ rows.to_html() | safe }} </div>  <br>
+
+      <table border = 1>
+         <thead>
+            <td>Sim-id</td>
+            <td>Gruppe</td>
+            <td>Runde</td>
+            <td>Race</td>
+            <td>Startwert</td>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row["sim_id"]}}</td>
+               <td>{{row["gruppe"]}}</td>
+               <td>{{row["runde"]}}</td>
+               <td>{{row['race']}}</td>
+               <td>{{row['startwert']}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+
+      <a href = "/">Zurück</a>
+
+
+
+
+    </body>
+</html>

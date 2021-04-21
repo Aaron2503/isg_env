@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>...calc</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Calculate Massnahmen  <br>
+    <a href="/">Zurück</a></h1>
+
+    <div class="form" align="center">
+        <form action="/calcul/{{task.id}} ">
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+            </head>
+            <body>
+
+            </body>  <table>
+            Eingabe: {{b_auswahl}}
+            <br><br>
+            KPI & Werte:<br>
+                <th>  {{kpi_liste_name}}  <br>
+                    {{endwert_q}}   <br><br>
+
+             <div id="my_table"> {{ html | safe }} </div>  <br>
+
+                <br> </th>  </table>
+            <br>
+            <br>
+            <br>
+
+
+            <br>
+            <a href="/">Zurück</a>
+            <!--<input type="submit" value="Calculate New Round"> -->
+        </form>
+    </div>
+</div>
+{% endblock %}

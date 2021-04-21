@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>ISG</title>
+{% endblock %}
+
+{% block body %}
+    {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+                    <p>{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+
+<div class="content">
+    <h1 style="text-align: center">Startwerte</h1>
+    <div class="form">
+        <form  method="POST">
+
+                {% if startwert|length < 1 %}
+                <h4 style="text-align: center">Kein Startwert erfasst! {{startwert}}</h4>
+                {% else %}
+                <h4 style="text-align: center">Startwert ist {{startwert}} - OK?</h4>
+                {% endif %}
+                <p>Startwerte <input type="text" name="startwert" id="startwert"></p>
+                <div class="form-group">
+                <label for="content">Content</label>
+                <input type="text" name="content" placeholder="Erfasse Startwert in Format: 0.0, 0.0 ..." class="form-control" value="{{ request.form['content'] }}"> </input>
+                </div>
+        <br><br>
+        <a type="button" href="/">Zurück</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+<!--      <form action = "{{ url_for('addrec') }}" method = "POST">
+         <h3>Student Information</h3>
+         Name<br>
+         <input type = "text" name = "nm" /></br>
+
+         Address<br>
+         <textarea name = "add" ></textarea><br>
+
+         City<br>
+         <input type = "text" name = "city" /><br>
+
+         PINCODE<br>
+         <input type = "text" name = "pin" /><br>
+         <input type = "submit" value = "submit" /><br>
+      </form>
+-->

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>ISG</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <h1 style="text-align: center">Input Auswahl Massnahmen</h1>
+
+    <div class="form" style="text-align: center">
+        <form action="/" method="POST">
+
+            <p>Sim-ID <input type="text" name="sim_id" id="sim_id">
+            Gruppe <input type="text" name="gruppe" id="gruppe">
+            Runde <input type="integer" name="runde" id="runde">
+            Race <input type="text" name="race" id="race">
+            M1 <input type="float" name="M1" id="M1">
+            M2 <input type="float" name="M2" id="M2">
+            M3 <input type="float" name="M3" id="M3">
+            M4 <input type="float" name="M4" id="M4">
+            M5 <input type="float" name="M5" id="M5">
+            Startwert <input type="text" name="startwert" id="startwert">
+            <input type="submit" value="Add Measures"></p>
+        </form>
+    </div>
+
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no choices of measures. Create one below!</h4>
+    {% else %}
+
+        <table align="center">
+            <h4 style="text-align: center">OK?
+            <a href="/treemap">Treemap Auswahl </a>  </h4>
+
+            <h4 style="text-align: center">Startwert ist tabelle {{startwert}} - OK?
+            <a href="/list">Startwerte tabelle </a>  </h4>
+
+            <tr>
+                <th>SimulationID</th>
+                <th>Gruppe</th>
+                <th>Runde</th>
+                <th>Race</th>
+                <th>M1</th>
+                <th>M2</th>
+                <th>M3</th>
+                <th>M4</th>
+                <th>M5</th>
+                <th>Startwert</th>
+                <th>Date</th>
+            </tr>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.sim_id }}</td>
+                    <td>{{ task.gruppe }}</td>
+                    <td>{{ task.runde }}</td>
+                    <td>{{ task.race }}</td>
+                    <td>{{ task.M1 }}</td>
+                    <td>{{ task.M2 }}</td>
+                    <td>{{ task.M3 }}</td>
+                    <td>{{ task.M4 }}</td>
+                    <td>{{ task.M5 }}</td>
+                    <td>{{ task.startwert }}</td>
+                    <td>{{ task.date_created.date() }}</td>
+                    <td>
+                        <a href="/update/{{task.id}}">Update</a>
+                        <a href="/calcul/{{task.id}}">Calculate</a>
+                        <a href="/delete/{{task.id}}">Delete</a>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+    {% endif %}
+
+</div>
+{% endblock %}
+
+

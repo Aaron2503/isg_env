@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>ISG</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Update Massnahmen</h1>
+
+    <div class="form" align="center">
+        <form action="/update/{{task.id}}" method="POST">
+            <input type="text" name="sim_id" id="sim_id" value="{{task.sim_id}}"> Sim-Id  <br> <br>
+            <input type="text" name="gruppe" id="gruppe" value="{{task.gruppe}}"> Gruppe  <br> <br>
+            <input type="integer" name="runde" id="runde" value="{{task.runde}}"> Runde   <br> <br>
+            <input type="text" name="race" id="race" value="{{task.race}}"> Race Q/R  <br> <br>
+            <input type="float" name="M1" id="M1" value="{{task.M1}}"> M1      <br> <br>
+            <input type="float" name="M2" id="M2" value="{{task.M2}}"> M2<br> <br>
+            <input type="float" name="M3" id="M3" value="{{task.M3}}"> M3<br> <br>
+            <input type="float" name="M4" id="M4" value="{{task.M4}}"> M4<br> <br>
+            <input type="float" name="M5" id="M5" value="{{task.M5}}"> M5<br> <br>
+            <input type="text" name="startwert" id="startwert" value="{{task.startwert}}"> Startwert   (Runde = 0)<br> <br>
+            <input type="submit" value="Update Task">
+        </form>
+    </div>
+</div>
+{% endblock %}
